@@ -1,0 +1,12 @@
+# Ignorer bin og obj mapper
+/bin
+/obj
+
+# Ignorer AssemblyInfo-filer som genereres automatisk
+*.AssemblyInfo.cs
+
+# Ignorer NuGet cache-filer
+*.nuget.cache
+
+# Ignorer genererte JSON-filer
+*.sourcelink.json

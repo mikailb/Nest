@@ -1,0 +1,22 @@
+@model Nest.ViewModels.PicturesViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/layout.css" />
+</head>
+<body>
+    <!-- FEED to Show Pictures -->
+    <div class="container">
+        <h1>Picture Feed</h1>
+        <div class="row flex-column align-items-center">
+            @foreach (var picture in Model.Pictures)
+            {
+                <div class="col-12 mb-4">
+                    @await Html.PartialAsync("_PictureCard", picture, new ViewDataDictionary(ViewData) { { "returnUrl", Url.Action("Grid") } })
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

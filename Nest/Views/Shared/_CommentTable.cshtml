@@ -1,0 +1,26 @@
+@model IEnumerable<Nest.Models.Comment>
+@{
+    bool isMyPage = ViewBag.IsMyPage as bool? ?? false;
+}
+<!-- Comment section for all commentmodel under a picture -->
+<div class="comments-section">
+    @foreach (var comment in Model)
+    {
+        <div class="comment mb-3 pb-2" style="border-bottom: 1px solid #e0e0e0;">
+            <strong>@(comment.UserName?.Contains("@") == true ? comment.UserName.Split('@')[0] : comment.UserName):</strong>
+            <span>@comment.CommentDescription</span>
+            <div class="text-muted">
+                <small>@comment.CommentTime.ToString("yyyy-MM-dd HH:mm")</small>
+
+                <!-- Show comments if its your comment and username match -->
+                @if (User.Identity?.Name == comment.UserName)
+                {
+                    <span class="comment-actions ms-3">
+                        <a asp-action="EditCommentNote" asp-controller="Comment" asp-route-id="@comment.CommentId" asp-route-source="@(isMyPage ? "MyPage" : "Grid")" class="text-decoration-none text-primary me-2">Edit</a>
+                        <a asp-action="DeleteComment" asp-controller="Comment" asp-route-id="@comment.CommentId" asp-route-source="@(isMyPage ? "MyPage" : "Grid")" class="text-danger">Delete</a>
+                    </span>
+                }
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,18 @@
+@model Nest.Models.Comment
+<!-- Seperate page/form to Edit your comment for NoteId -->
+<h2>Edit Comment</h2>
+
+<form asp-action="EditCommentNote" asp-route-id="@Model.CommentId" method="post">
+    <input type="hidden" asp-for="CommentId" /> <!-- Hidden field for CommentId -->
+    <input type="hidden" name="source" value="@TempData["Source"]" /> 
+
+    <div class="form-group">
+        <label for="CommentDescription">Comment</label>
+        <textarea asp-for="CommentDescription" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="CommentDescription" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <!-- Cancel button redirects based on the source parameter -->
+    <a href="@((TempData["Source"] as string) == "Notes" ? Url.Action("Notes", "Note") : Url.Action("MyPage", "Note"))" class="btn btn-secondary">Cancel</a>
+</form>

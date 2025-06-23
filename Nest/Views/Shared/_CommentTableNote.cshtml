@@ -1,0 +1,25 @@
+@model IEnumerable<Nest.Models.Comment>
+@{
+    bool isMyPage = ViewData["IsMyPage"] as bool? ?? false;
+}
+<!-- Model for showing all comment models under note -->
+@foreach (var comment in Model)
+{
+    <div class="comment d-flex justify-content-between align-items-center mb-2">
+        <div>
+            <strong>@(comment.UserName?.Contains("@") == true ? comment.UserName.Split('@')[0] : comment.UserName):</strong> @comment.CommentDescription
+            <p class="text-muted">
+                <small class="relative-time" data-timestamp="@comment.CommentTime.ToString("o")"></small>
+            </p>
+        </div>
+
+        <!-- Show buttons when its your comment-->
+        @if (User.Identity?.Name == comment.UserName)
+        {
+            <div class="comment-actions">
+                <a asp-action="EditCommentNote" asp-controller="Comment" asp-route-id="@comment.CommentId" asp-route-source="@(isMyPage ? "MyPage" : "Notes")" class="text-decoration-none text-primary me-2">Edit</a>
+                <a asp-action="DeleteCommentNote" asp-controller="Comment" asp-route-id="@comment.CommentId" asp-route-source="@(isMyPage ? "MyPage" : "Notes")" class="text-danger">Delete</a>
+            </div>
+        }
+    </div>
+}

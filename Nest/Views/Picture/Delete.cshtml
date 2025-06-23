@@ -1,0 +1,15 @@
+@model Nest.Models.Picture
+<!-- Own delete page, so you have time to decide -->
+<h2>Delete Image</h2>
+
+<p>Are you sure you want to delete this image?</p>
+<div>
+    <img src="@Model.PictureUrl" alt="@Model.Title" style="width:200px;" />
+    <h3>@Model.Title</h3>
+</div>
+<!-- Uses DeleteConfirmed from controller -->
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.PictureId" asp-route-source="@TempData["Source"]" method="post">
+    <input type="hidden" name="source" value="@TempData["Source"]" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@((TempData["Source"] as string) == "MyPage" ? Url.Action("MyPage", "Picture") : Url.Action("Grid", "Picture"))" class="btn btn-secondary">Cancel</a>
+</form>

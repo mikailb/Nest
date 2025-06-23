@@ -1,0 +1,266 @@
+/* CONTAINER AND MAIN CSS, MOSTLY PICTURE CSS */
+.container-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.container-feed {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.picture-feed-card-footer {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+}
+
+.post-content {
+  padding: 10px;
+}
+
+.description {
+  margin: 0;
+  font-size: 14px;
+}
+
+.timestamp {
+  color: #8e8e8e;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/*CSS FOR THE COMMENTS CONTENT  */
+
+.comments {
+  padding: 10px;
+  border-top: 1px solid #dbdbdb;
+}
+
+.comments p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  resize: none;
+  margin-bottom: 5px;
+}
+
+.comment-form button {
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.comment-form button:hover {
+  background-color: #007bb5;
+}
+/* DELETE BUTTON */
+.btn-delete {
+  background-color: #ff4d4d; /* Rød farge for slett-knappen */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-delete:hover {
+  background-color: #e60000; /* Endrer fargen når man hover over knappen */
+}
+
+/*ADJUSTMENTS TO BOOTSTRAP FOR NOTE AND PICTURE CARD  */
+.picture-feed-card {
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.picture-feed-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 14px;
+  color: #262626;
+}
+
+.relative-time {
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+.picture-feed-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0; /* To keep Instagram's sharp corners for images */
+}
+
+.picture-feed-card-body {
+  padding: 10px 15px;
+}
+
+.picture-card-footer {
+  border-top: 1px solid #ddd;
+  padding: 10px 15px;
+}
+
+.view-comments-link {
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  font-size: 14px;
+  padding: 8px;
+  color: #333;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+}
+
+.note-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* TITLE AND TEXT FOR NOTES */
+.note-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.note-author,
+.note-timestamp {
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.note-content {
+  font-size: 1rem;
+  color: #4f4f4f;
+  line-height: 1.6;
+}
+
+/* MORE BUTTONS */
+.note-actions .btn {
+  margin-right: 5px;
+  font-size: 0.85rem;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #333;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+}
+
+/* COMMENT SECTION STYLING FOR PICTURE*/
+.comments-section {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.comment-form {
+  margin-top: 10px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 10px;
+}
+
+.comment-textarea {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.9rem;
+  resize: none;
+  background-color: #f9f9f9;
+}
+
+.comment-textarea:focus {
+  border-color: #0095f6;
+  outline: none;
+}
+
+.comment-form button {
+  background-color: #0095f6;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+  background-color: #007bb5;
+}
+
+.spaced-heading {
+  font-size: 2rem; /* Adjust the size of the heading */
+  font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+  color: #333; /* Neutral color for the text */
+  margin: 30px 0; /* Adds space above and below the heading */
+  text-align: center; /* Centers the heading */
+  font-weight: bold; /* Makes the heading stand out */
+}

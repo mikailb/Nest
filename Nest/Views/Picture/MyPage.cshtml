@@ -1,0 +1,25 @@
+@model Nest.ViewModels.PicturesViewModel
+
+@{
+    var returnUrl = Url.Action("MyPage", "Picture");
+}
+
+<div class="container">
+    <h2 class="spaced-heading">My Pictures</h2>
+
+    <!-- List of pictures -->
+    <div class="row flex-column align-items-center">
+        @foreach (var picture in Model.Pictures)
+        {
+            <div class="col-12 mb-4"> 
+                @await Html.PartialAsync("_PictureCard", picture, new ViewDataDictionary(ViewData) { { "returnUrl", returnUrl } })
+            </div>
+        }
+    </div>
+
+    <!-- Button to navigate to the Create page -->
+    <div class="mt-4 text-center">
+        <a asp-action="Create" asp-controller="Picture" class="btn btn-primary">Upload new picture</a>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+@model Nest.ViewModels.NotesViewModel
+
+<div class="container-page">
+    <h2 class="spaced-heading">My notes</h2>
+    
+    <!-- List over the users notes -->
+    <div class="row mt-5">
+        @foreach (var note in Model.Notes)
+        {
+            <div class="col mb-4">  
+                <!-- Uses NoteList from Shared -->
+                @await Html.PartialAsync("_NoteList", note)
+            </div>
+        }
+    </div>
+
+    <div class="mt-4 text-center">
+        <a asp-action="Create" asp-controller="Note" class="btn btn-primary">Create new note</a>
+    </div>
+</div>

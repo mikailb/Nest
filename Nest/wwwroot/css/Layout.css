@@ -1,0 +1,495 @@
+/*TITLE H1*/
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: #333;
+  text-align: center;
+  font-weight: 700;
+  margin: 20px auto;
+  position: relative;
+  letter-spacing: 0.7px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #28c5b0, #149dd3);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+h1:hover::after {
+  width: 80%;
+}
+
+/*HOMEPAGE AND LOGIN START PAGE */
+
+body.home-page {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5,
+    #4f5bd5,
+    #2a9df4
+  );
+  background-size: 200% 200%;
+  animation: homepage-smoothPulse 4s ease-in-out infinite;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: #ffffff;
+}
+
+.welcome-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh; /* Flytter teksten litt ned på siden */
+  margin-bottom: 1px; /* Avstand til login-boksen */
+}
+
+.welcome-text h1 {
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+.homepage-login-register-box {
+  position: relative;
+  top: -200px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 650px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+@keyframes homepage-smoothPulse {
+  0% {
+    background-size: 150% 150%;
+    background-position: 0% 50%;
+  }
+  25% {
+    background-size: 160% 160%;
+    background-position: 50% 50%;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: 100% 50%;
+  }
+  75% {
+    background-size: 160% 160%;
+    background-position: 50% 50%;
+  }
+  100% {
+    background-size: 150% 150%;
+    background-position: 0% 50%;
+  }
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom {
+  padding-left: 1rem;
+}
+
+.homepage-btn-toggle {
+  flex: 1;
+  background-color: transparent;
+  border-color: #fff;
+  padding: 15px 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.homepage-btn-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.homepage-btn-toggle.active {
+  border-color: transparent;
+  color: #fff;
+}
+
+.homepage-form-container {
+  display: none;
+}
+
+.homepage-form-container.active {
+  display: block;
+}
+
+.homepage-btn-primary {
+  color: #fff;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homepage-btn-primary:hover,
+.homepage-btn-primary:focus,
+.homepage-btn-primary:active,
+.homepage-btn-primary:focus-visible {
+  color: #0f1011;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  box-shadow: none;
+}
+
+.homepage-btn-primary:active {
+  background-color: #5d4037;
+  color: #fff;
+  border-color: #5d4037;
+}
+
+/*NAVIGATION links/bar*/
+
+.more-space-between {
+  margin-right: 200px;
+}
+
+.nav-item-custom {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+  margin-left: 30px;
+}
+
+.nav-item-custom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-item-custom:hover {
+  color: #007bff; /* Changes text color on hover */
+}
+
+.nav-item-custom:hover::after {
+  width: 100%; /* Expands the underline on hover */
+}
+
+.margin-left {
+  margin-left: 50px;
+}
+
+/*PICTURE CARD AND SITEWIDE CSS  */
+
+.picture-navbar {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 100%;
+}
+
+.picture-navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.picture-navbar-brand:hover {
+  color: #0f1011;
+}
+
+.picture-navbar-nav .picture-nav-link {
+  color: #333;
+  font-weight: 500;
+  margin: 0 10px;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.picture-navbar-nav .picture-nav-link:hover,
+.picture-navbar-nav .picture-nav-link.active {
+  color: #ffffff;
+  background-color: lightgray;
+}
+
+.picture-btn-primary {
+  color: #2a9df4;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.picture-btn-primary:hover,
+.picture-btn-primary:focus,
+.picture-btn-primary:active,
+.picture-btn-primary:focus-visible {
+  color: #0f1011;
+  background-color: #f0f0f0;
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.picture-btn-primary:active {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.picture-edit-btn,
+.picture-delete-btn {
+  background-color: transparent;
+  color: #2a9df4;
+  border: none;
+  padding: 6px 12px;
+}
+
+.picture-edit-btn:hover,
+.picture-delete-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #2a9df4;
+}
+
+.picture-feed-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.picture-feed-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.picture-feed-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.picture-feed-card-body h5 {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.picture-feed-card-body p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.picture-card-footer {
+  padding: 16px;
+}
+
+.picture-comment-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.picture-comment-box textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1.1em;
+}
+
+.picturep-comment-box {
+  font-size: 1.1em;
+  padding: 10px 14px;
+}
+
+.picture-btn {
+  font-size: 0.85em;
+  padding: 4px 12px;
+}
+
+/* NOTE PAGE AND CARD */
+
+.notes-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%; /* Bruk hele bredden av kolonnen */
+  max-width: 600px; /* Satt til 600px for konsistent bredde */
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.notes-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.notes-card-body {
+  padding: 16px;
+}
+
+.notes-card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.notes-card-text {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.notes-card-meta {
+  font-size: 0.85em;
+  color: #777;
+}
+
+/* NOTE BUTTONS */
+.notes-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-right: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.notes-btn-edit {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.notes-btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.notes-btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.notes-btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* COMMENT FOOTER */
+.notes-card-footer {
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+}
+
+.notes-comments-title {
+  font-size: 1.2em;
+  margin-bottom: 12px;
+}
+
+/* COMMENT-FORMS AND INPUTS */
+.notes-comment-form {
+  margin-top: 12px;
+}
+
+.notes-comment-input-group {
+  margin-bottom: 8px;
+}
+
+.notes-comment-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-size: 1em;
+}
+
+.notes-btn-submit {
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.notes-btn-submit:hover {
+  background-color: #218838;
+}
+
+/* LOG OUT BUTTON ON NAVBAR*/
+.logout-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-button:hover {
+  background: linear-gradient(90deg, #e60000, #cc0000);
+  transform: scale(1.05);
+}
+
+.logout-button:active {
+  transform: scale(0.95);
+  background: linear-gradient(90deg, #cc0000, #b30000);
+}
+
+/* Button styling for pictures Home */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px 0;
+}
+
+.button-container a {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(90deg, #ff8a00, #da1b60);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+/* Hover effect for buttons ON PICTURE HOME */
+.button-container a:hover {
+  transform: scale(1.05);
+  color: #fff;
+}

@@ -1,0 +1,45 @@
+#carouselImages {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  overflow: hidden;
+  z-index: -1; /* Place behind the content */
+}
+
+.background-slide {
+  width: 100%; /* Ensure it covers the whole site */
+  height: 100vh;
+  background-size: cover; /* Scale the image to fill the frame */
+  background-position: center 75%; /* To find the best way to showcase the pictures*/
+  background-repeat: no-repeat; /* Prevent tiling */
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0; /*transparent */
+  transition: opacity 2.5s ease-in-out; /* Fades the pictures*/
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1; /* Fully visible for the active slide */
+  transition: opacity 2.5s ease-in-out; /* Matching the fade duration */
+}
+
+.foreground-content {
+  position: relative;
+  z-index: 1; /* Place it above the carousel */
+  text-align: center;
+  color: white;
+  margin-top: 20%; /* Center vertically */
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.foreground-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.foreground-content p {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,59 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<head>
+    <link href="~/css/Layout.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<!-- LOGO -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">NEST</a>
+
+
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item-custom">
+                    <a class="nav-link text-dark" asp-controller="Picture" asp-action="Home">Home</a>
+                </li>
+                <li class="nav-item-custom">
+                    <a class="nav-link text-dark" asp-controller="Picture" asp-action="Grid">Pictures</a>
+                </li>
+                <li class="nav-item-custom">
+                    <a class="nav-link text-dark" asp-controller="Note" asp-action="Notes">Notes</a>
+                </li>
+                <li class="nav-item-custom">
+                    <a class="nav-link text-dark" asp-controller="Picture" asp-action="MyPage">MyPagePics</a>
+                </li>
+                <li class="nav-item-custom">
+                    <a class="nav-link text-dark" asp-controller="Note" asp-action="MyPage">MyPageNotes</a>
+                </li>
+
+                <!-- LOGOUT button appear after login -->
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="btn">
+                        <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" class="form-inline">
+                            <button type="submit" class="logout-button">Logout</button>
+                        </form>
+                    </li>
+                }
+                else
+                { <!-- Login and Register buttons when not logged in -->
+                    <li class="nav-item-custom">
+                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a>
+                    </li>
+                    <li class="nav-item-custom">
+                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/register">Create User</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

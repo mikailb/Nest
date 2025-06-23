@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nest", "Nest\Nest.csproj", "{AD49FBB0-BBA6-4139-AA98-73003CB45A8A}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nest", "Nest\Nest.csproj", "{75B63F73-BAF9-4C0D-A11E-22EC0DE74B41}"
+>>>>>>> fad57e36dcfb687d674fe0fb9f1ad760d56afdd2
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
+		{AD49FBB0-BBA6-4139-AA98-73003CB45A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD49FBB0-BBA6-4139-AA98-73003CB45A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD49FBB0-BBA6-4139-AA98-73003CB45A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD49FBB0-BBA6-4139-AA98-73003CB45A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{75B63F73-BAF9-4C0D-A11E-22EC0DE74B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B63F73-BAF9-4C0D-A11E-22EC0DE74B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B63F73-BAF9-4C0D-A11E-22EC0DE74B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B63F73-BAF9-4C0D-A11E-22EC0DE74B41}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> fad57e36dcfb687d674fe0fb9f1ad760d56afdd2
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
+		SolutionGuid = {C8E9CE40-4C6F-4A14-BBCD-A60FF0C1C744}
+=======
+		SolutionGuid = {1579C555-2BF4-4F63-8783-EDC29488D8CB}
+>>>>>>> fad57e36dcfb687d674fe0fb9f1ad760d56afdd2
+	EndGlobalSection
+EndGlobal

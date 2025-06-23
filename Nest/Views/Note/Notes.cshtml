@@ -1,0 +1,26 @@
+@model Nest.ViewModels.NotesViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/layout.css" />
+</head>
+<body class="notes-page">
+    <div class="container-feed">
+        <h1>Notes Feed</h1>
+        
+        <!-- Stack notes vertically, centered -->
+        <div class="row flex-column align-items-center">
+            @foreach (var note in Model.Notes)
+            {
+                <div class="col-12 mb-4">
+                    @{
+                        ViewData["returnUrl"] = Url.Action("Notes");
+                    }
+                    @await Html.PartialAsync("_NoteList", note, ViewData)
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

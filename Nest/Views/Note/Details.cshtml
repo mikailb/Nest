@@ -1,0 +1,38 @@
+@model Nest.Models.Note
+<!-- Page to show the note more in detail -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Model.Title</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <p>@Model.Content</p>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <p><strong>Created on:</strong> @Model.UploadDate.ToString("yyyy-MM-dd HH:mm")</p>
+        </div>
+    </div>
+    <!-- Buttons appear if its your post -->
+    @if (User.Identity?.Name == Model.username)
+    {
+        <div class="row mt-3">
+            <div class="col-md-12">
+            <a asp-action="Edit" asp-route-id="@Model.NoteId" asp-route-source="@(ViewBag.Source)" class="btn btn-warning btn-sm">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.NoteId" asp-route-source="@(ViewBag.Source)" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <!-- Return button to either MyPage or Notes based on ViewBag.Source -->
+            <a href="@((string)ViewBag.Source == "MyPage" ? Url.Action("MyPage", "Note") : Url.Action("Notes", "Note"))" class="btn btn-secondary">Return</a>
+        </div>
+    </div>
+</div>

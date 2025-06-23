@@ -1,0 +1,102 @@
+@model Nest.Models.Note
+@{
+    
+    bool isMyPage = ViewData["IsMyPage"] as bool? ?? false;
+    
+
+}
+<div class="card mb-4 shadow-sm note-card">
+    <a asp-action="Details" asp-route-id="@Model.NoteId" asp-route-source="@(isMyPage ? "MyPage" : "Notes")" class="text-decoration-none">
+        <div class="card-body">
+            <h4 class="note-title">@Model.Title</h4>
+            <p class="note-author">Written by: @(Model.username?.Contains("@") == true ? Model.username.Split('@')[0] : Model.username)</p>
+            <p class="note-content">@Model.Content</p>
+            <p class="note-timestamp">Uploaded: <span class="relative-time" data-timestamp="@Model.UploadDate.ToString("yyyy-MM-ddTHH:mm:ssZ")"></span></p>
+        </div>
+    </a>
+
+    <div class="card-footer bg-light">
+        <!-- Conditionally render Edit and Delete buttons only if on MyPage -->
+        @if (User.Identity?.Name == Model.username)
+    {
+        <div class="note-actions">
+            <a asp-action="Edit" asp-route-id="@Model.NoteId" asp-route-source="@(isMyPage ? "MyPage" : "Notes")" class="btn btn-warning btn-sm">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.NoteId" asp-route-source="@(isMyPage ? "MyPage" : "Notes")" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    }
+
+        <!-- Comments Section with toggle visibility -->
+        <div class="comments-section">
+            @if (Model.Comments.Count > 0)
+            {
+                <p class="text-muted">
+                    <a href="javascript:void(0);" onclick="toggleComments('@Model.NoteId')" class="view-comments-link">
+                        View all @Model.Comments.Count comments
+                    </a>
+                </p>
+            }
+
+            <!-- Hidden Comments Section -->
+            <div id="all-comments-@Model.NoteId" style="display: none;">
+                @await Html.PartialAsync("_CommentTableNote", Model.Comments) <!-- Render comments with the partial view -->
+            </div>
+
+            <!-- Add new comment form -->
+            <form asp-action="CreateCommentNote" asp-controller="Comment" method="post" class="comment-form mt-2">
+    <input type="hidden" name="NoteId" value="@Model.NoteId" />
+    <input type="hidden" name="source" value="@(isMyPage ? "MyPage" : "Notes")" /> <!-- Use isMyPage to set the correct source -->
+    <div class="form-group">
+        <textarea class="form-control" name="CommentDescription" placeholder="Write a comment..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm mt-1">Comment</button>
+</form>
+
+        </div>
+    </div>
+</div>
+<!-- SPECIFIC SCRIPTS for the NOTELIST -->
+<script>
+    function toggleComments(noteId) {
+        var comments = document.getElementById("all-comments-" + noteId);
+        if (comments.style.display === "none") {
+            comments.style.display = "block";
+        } else {
+            comments.style.display = "none";
+        }
+    }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const timeElements = document.querySelectorAll('.relative-time');
+    timeElements.forEach(el => {
+        const timestamp = el.getAttribute('data-timestamp');
+        const date = new Date(timestamp);
+
+        if (!isNaN(date)) {  
+            el.innerText = timeSince(date); // Bruk timeSince-funksjonen
+        } else {
+            el.innerText = "just now"; 
+        }
+    });
+});
+
+function timeSince(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    const intervals = [
+        { label: 'year', seconds: 31536000 },
+        { label: 'month', seconds: 2592000 },
+        { label: 'week', seconds: 604800 },
+        { label: 'day', seconds: 86400 },
+        { label: 'hour', seconds: 3600 },
+        { label: 'minute', seconds: 60 },
+    ];
+
+    for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count >= 1) {
+            return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+        }
+    }
+    return 'just now';
+}
+
+</script>
